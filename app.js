@@ -97,12 +97,13 @@
   const streamDays = SITE.streamDays || [];
   const weekOrder = [1, 2, 3, 4, 5, 6, 0];
   const total = ALL.reduce((s, v) => s + v.views, 0);
+  const liveDays = weekOrder.filter(d => streamDays.includes(d)).map(d => dayShort[d]).join(' / ') || 'Soon';
   $('#hero-stats').innerHTML = [
     ['Uploads', ALL.length],
     ['Total views', fmt(total)],
     ['Games covered', games.length],
-    ['Live', weekOrder.filter(d => streamDays.includes(d)).map(d => dayShort[d]).join(' / ') || 'Soon']
-  ].map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('');
+    ['Live', liveDays, 'stat-live']
+  ].map(([k, v, id]) => `<div><dt>${k}</dt><dd${id ? ` id="${id}"` : ''}>${esc(v)}</dd></div>`).join('');
 
   /* ---------- featured games + most watched ---------- */
   $('#featured-games').innerHTML = (SITE.featuredGames || []).filter(gameCount).map(g => {
@@ -189,9 +190,53 @@
   $('#live-status').innerHTML = streamDays.includes(today)
     ? '<strong>Today is a stream day.</strong> Follow on Twitch so you catch the go-live alert.'
     : next !== null ? `Next stream: <strong>${dayLong[next]}</strong>. Follow on Twitch so you catch the go-live alert.` : '';
+  const dayNames = weekOrder.filter(d => streamDays.includes(d)).map(d => dayLong[d]);
+  if (dayNames.length) $('#live-days').textContent = 'Every ' + (dayNames.length > 1 ? `${dayNames.slice(0, -1).join(', ')} & ${dayNames.at(-1)}` : dayNames[0]);
   const lastStream = ALL.filter(v => v.type === 'stream').sort(byNew)[0];
   if (lastStream) {
-    $('#last-stream').innerHTML = `<p class="eyebrow" style="margin-bottom:10px">Latest stream VOD</p>` + card(lastStream);
+    $('#last-stream').innerHTML = `<p class="eyebrow">Latest stream VOD</p>
+      <a class="item" ${link(lastStream)}>
+        <span class="item__media">${img(lastStream)}${lastStream.len ? `<span class="dur">${esc(lastStream.len)}</span>` : ''}</span>
+        <span class="item__body"><span class="item__title">${esc(lastStream.title)}</span><span class="item__meta">${meta(lastStream, false)}</span></span>
+      </a>`;
+  } else $('#last-stream').hidden = true;
+
+  // Twitch player. Its ONLINE / OFFLINE events (sent right after it loads, and again whenever the
+  // channel changes state) flip html.is-live, which moves the section above the hero and opens chat.
+  const channel = (SOC.twitch || '').match(/twitch\.tv\/(\w+)/i)?.[1];
+  const host = location.hostname;
+  if (channel && host) {
+    $$('[data-twitch-chat]').forEach(a => { a.href = `https://www.twitch.tv/popout/${channel}/chat?popout=`; });
+    const wide = matchMedia('(min-width: 961px)');
+    let chatOn = false;
+    const isLive = () => document.documentElement.classList.contains('is-live');
+    const mountChat = () => {
+      if (chatOn || !isLive() || !wide.matches) return;
+      chatOn = true;
+      $('#live-chat').innerHTML = `<iframe title="BrothasCrib Twitch chat" src="https://www.twitch.tv/embed/${channel}/chat?parent=${encodeURIComponent(host)}&darkpopout"></iframe>`;
+    };
+    wide.addEventListener('change', mountChat);
+    let player;
+    const setLive = on => {
+      if (on === isLive()) return;
+      document.documentElement.classList.toggle('is-live', on);
+      $('#stat-live').textContent = on ? 'Now' : liveDays;
+      mountChat();
+      // The player loads further down the page, where Twitch skips autoplay. Start it (muted) once
+      // the move has put it on screen.
+      if (on) requestAnimationFrame(() => {
+        const b = $('.player').getBoundingClientRect();
+        if (b.top < innerHeight && b.bottom > 0) player.play();
+      });
+    };
+    const s = document.createElement('script');
+    s.src = 'https://player.twitch.tv/js/embed/v1.js';
+    s.onload = () => {
+      player = new Twitch.Player('twitch-player', { channel, parent: [host], width: '100%', height: '100%', autoplay: true, muted: true });
+      player.addEventListener(Twitch.Player.ONLINE, () => setLive(true));
+      player.addEventListener(Twitch.Player.OFFLINE, () => setLive(false));
+    };
+    document.head.appendChild(s);
   }
 
   /* ---------- library ---------- */

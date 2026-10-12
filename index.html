@@ -25,6 +25,7 @@
 <!--seo:end-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://player.twitch.tv">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=Ultra&display=swap">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -49,6 +50,7 @@
       <a href="#brotherhood">Brotherhood</a>
     </nav>
     <div class="topbar__end">
+      <a class="live-pill" href="#live" data-on><span class="dot"></span>Live</a>
       <div class="socials socials--bar" data-socials></div>
       <a class="btn btn--gold btn--sm" data-link="discord" href="#" target="_blank" rel="noopener">Join<span class="hide-xs"> the Crib</span></a>
     </div>
@@ -101,7 +103,7 @@
     </div>
   </section>
 
-  <div class="wrap stack">
+  <div class="wrap stack stack--a">
 
     <section class="split" id="games">
       <div class="block">
@@ -154,22 +156,51 @@
       <div class="rail" id="shorts-rail" tabindex="0" aria-label="Shorts, scroll sideways"></div>
     </section>
 
-    <section class="live" id="live">
-      <div class="live__copy">
-        <p class="eyebrow eyebrow--live"><span class="dot"></span> Live on Twitch</p>
-        <h2 class="live__title">Every Monday, Saturday &amp; Sunday</h2>
-        <p class="live__status" id="live-status"></p>
-        <ol class="week" id="week" aria-label="Stream days this week"></ol>
-        <div class="live__actions">
+  </div>
+
+  <!-- Twitch player. Sits here while offline; when the channel goes live, html.is-live moves this
+       zone above the hero (CSS order, so the player never reloads) and opens chat beside it. -->
+  <div class="live-zone wrap">
+    <section class="live" id="live" aria-labelledby="live-title">
+      <div class="live__head">
+        <div class="live__heading">
+          <p class="eyebrow eyebrow--live"><span class="dot"></span><span data-off>Live on Twitch</span><span data-on>Live now on Twitch</span></p>
+          <h2 class="live__title" id="live-title"><span data-off id="live-days">Every Monday, Saturday &amp; Sunday</span><span data-on>BrothasCrib is live</span></h2>
+        </div>
+        <div class="live__actions" data-on>
           <a class="btn btn--twitch" data-link="twitch" href="#" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.57 4.71h1.72v5.15h-1.72zm4.72 0H18v5.15h-1.71zM6 0 1.71 4.29v15.42h5.15V24l4.28-4.29h3.43L22.29 12V0zm14.57 11.14-3.43 3.43h-3.43l-3 3v-3H6.86V1.71h13.71z"/></svg>
-            Follow on Twitch
+            Watch on Twitch
           </a>
-          <a class="btn btn--ghost" href="#library" data-type="stream">Watch Past Streams</a>
+          <a class="btn btn--ghost chat-link" data-twitch-chat href="#" target="_blank" rel="noopener">Open Chat</a>
         </div>
       </div>
-      <div class="live__card" id="last-stream"></div>
+      <div class="live__body">
+        <div class="player">
+          <a class="player__fallback" data-link="twitch" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.57 4.71h1.72v5.15h-1.72zm4.72 0H18v5.15h-1.71zM6 0 1.71 4.29v15.42h5.15V24l4.28-4.29h3.43L22.29 12V0zm14.57 11.14-3.43 3.43h-3.43l-3 3v-3H6.86V1.71h13.71z"/></svg>
+            <span>Watch BrothasCrib on Twitch</span>
+          </a>
+          <div class="player__mount" id="twitch-player"></div>
+        </div>
+        <div class="live__chat" id="live-chat" data-on></div>
+        <div class="live__info" data-off>
+          <p class="live__status" id="live-status"></p>
+          <ol class="week" id="week" aria-label="Stream days this week"></ol>
+          <div class="live__actions">
+            <a class="btn btn--twitch" data-link="twitch" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.57 4.71h1.72v5.15h-1.72zm4.72 0H18v5.15h-1.71zM6 0 1.71 4.29v15.42h5.15V24l4.28-4.29h3.43L22.29 12V0zm14.57 11.14-3.43 3.43h-3.43l-3 3v-3H6.86V1.71h13.71z"/></svg>
+              Follow on Twitch
+            </a>
+            <a class="btn btn--ghost" href="#library" data-type="stream">Past Streams</a>
+          </div>
+          <div class="live__vod" id="last-stream"></div>
+        </div>
+      </div>
     </section>
+  </div>
+
+  <div class="wrap stack stack--b">
 
     <section class="block" id="library">
       <div class="block__head">
