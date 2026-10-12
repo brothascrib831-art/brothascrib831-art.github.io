@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BrothasCrib | MMORPG Videos, Reactions &amp; Live Streams</title>
+<meta name="description" content="BrothasCrib is a variety gaming channel for action combat MMORPGs: AION 2 builds, Dragon's Dogma 2, Monster Hunter Wilds, reactions and guides. Live on Twitch Monday, Saturday and Sunday.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0c0a05">
+<link rel="icon" href="img/avatar.jpg">
+<link rel="apple-touch-icon" href="img/avatar.jpg">
+<!--seo:start-->
+<link rel="canonical" href="https://brothascrib831-art.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BrothasCrib">
+<meta property="og:url" content="https://brothascrib831-art.github.io/">
+<meta property="og:title" content="BrothasCrib | MMORPG Videos, Reactions &amp; Live Streams">
+<meta property="og:description" content="Action combat MMORPGs, reactions, guides and live streams. Step into the Crib.">
+<meta property="og:image" content="https://brothascrib831-art.github.io/img/banner.jpg">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="318">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://brothascrib831-art.github.io/img/banner.jpg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://brothascrib831-art.github.io/#org", "name": "BrothasCrib", "alternateName": "Brothas Crib", "url": "https://brothascrib831-art.github.io/", "logo": "https://brothascrib831-art.github.io/img/avatar.jpg", "image": "https://brothascrib831-art.github.io/img/banner.jpg", "description": "BrothasCrib is a variety gaming channel for action combat MMORPGs: AION 2 builds, Dragon's Dogma 2, Monster Hunter Wilds, reactions and guides. Live on Twitch Monday, Saturday and Sunday.", "sameAs": ["https://www.youtube.com/@brothascrib831", "https://www.twitch.tv/brothascrib", "https://discord.gg/cgDVVRjh5"]}, {"@type": "WebSite", "@id": "https://brothascrib831-art.github.io/#site", "url": "https://brothascrib831-art.github.io/", "name": "BrothasCrib", "publisher": {"@id": "https://brothascrib831-art.github.io/#org"}, "inLanguage": "en"}]}</script>
+<!--seo:end-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=Ultra&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="topbar__row wrap">
+    <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <a class="brand" href="#top" aria-label="BrothasCrib home">
+      <img class="brand__mark" src="img/avatar.jpg" alt="" width="38" height="38">
+      <span class="brand__word">BrothasCrib</span>
+    </a>
+    <nav class="mainnav" aria-label="Main">
+      <a href="#games">Games</a>
+      <a href="#latest">Videos</a>
+      <a href="#shorts">Shorts</a>
+      <a href="#live">Live</a>
+      <a href="#brotherhood">Brotherhood</a>
+    </nav>
+    <div class="topbar__end">
+      <div class="socials socials--bar" data-socials></div>
+      <a class="btn btn--gold btn--sm" data-link="discord" href="#" target="_blank" rel="noopener">Join the Crib</a>
+    </div>
+  </div>
+  <div class="trending">
+    <div class="trending__row wrap">
+      <span class="trending__label">Trending</span>
+      <div class="trending__list" id="trending"></div>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" hidden>
+  <nav class="drawer__nav" aria-label="Menu">
+    <a href="#games">Games</a>
+    <a href="#latest">Videos</a>
+    <a href="#shorts">Shorts</a>
+    <a href="#live">Live on Twitch</a>
+    <a href="#library">Video Library</a>
+    <a href="#brotherhood">The Brotherhood</a>
+  </nav>
+  <div class="socials" data-socials data-labels></div>
+</div>
+
+<main id="main">
+  <noscript><p class="wrap" style="padding-block:12px">Turn on JavaScript to browse the video library, or watch everything on <a href="https://www.youtube.com/@brothascrib831">YouTube</a> and live on <a href="https://www.twitch.tv/brothascrib">Twitch</a>.</p></noscript>
+
+  <section class="hero" id="top">
+    <canvas class="hero__stars" id="stars" aria-hidden="true"></canvas>
+    <div class="hero__inner wrap">
+      <div class="hero__copy">
+        <p class="eyebrow">Action Combat MMORPGs &middot; Reactions &middot; Guides &middot; Live Streams</p>
+        <h1 class="hero__title">
+          <span>Step Into The Crib.</span>
+          <span class="goldtext">The Doctor Is In.</span>
+        </h1>
+        <form class="search" id="hero-search" role="search">
+          <label class="sr-only" for="hero-q">Search BrothasCrib videos</label>
+          <svg class="search__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          <input id="hero-q" type="search" autocomplete="off" placeholder="Search videos, shorts and streams">
+          <button class="btn btn--gold" type="submit">Search</button>
+        </form>
+        <div class="hero__quick" id="hero-quick"></div>
+        <dl class="hero__stats" id="hero-stats"></dl>
+      </div>
+      <div class="hero__art" aria-hidden="true">
+        <div class="hero__glow"></div>
+        <img src="img/avatar.jpg" alt="" width="400" height="400">
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap stack">
+
+    <section class="split" id="games">
+      <div class="block">
+        <div class="block__head">
+          <h2>Featured Games</h2>
+          <a class="seeall" href="#library" data-reset>Browse All</a>
+        </div>
+        <div class="games" id="featured-games"></div>
+      </div>
+      <aside class="block">
+        <div class="block__head">
+          <h2>Most Watched</h2>
+          <a class="seeall" href="#library" data-sort="views">See All</a>
+        </div>
+        <ol class="ranked" id="most-watched"></ol>
+      </aside>
+    </section>
+
+    <section class="block" id="feed">
+      <div class="block__head">
+        <h2>Reactions, Guides &amp; Everything Else</h2>
+        <a class="seeall" href="#library" data-reset>See All Latest</a>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Filter the feed" id="feed-tabs">
+        <button role="tab" type="button" id="tab-latest" data-kind="latest" aria-selected="true">Latest</button>
+        <button role="tab" type="button" id="tab-reaction" data-kind="reaction" aria-selected="false">Reactions</button>
+        <button role="tab" type="button" id="tab-guide" data-kind="guide" aria-selected="false">Guides</button>
+        <button role="tab" type="button" id="tab-news" data-kind="news" aria-selected="false">News</button>
+        <button role="tab" type="button" id="tab-stream" data-kind="stream" aria-selected="false">Streams</button>
+      </div>
+      <div class="feed" id="feed-body" role="tabpanel" aria-labelledby="tab-latest"></div>
+    </section>
+
+    <section class="block" id="latest">
+      <div class="block__head">
+        <h2>Latest YouTube Videos</h2>
+        <a class="seeall" data-link="youtube" href="#" target="_blank" rel="noopener">See Our YouTube Channel</a>
+      </div>
+      <div class="grid grid--videos" id="latest-videos"></div>
+    </section>
+
+    <section class="block" id="shorts">
+      <div class="block__head">
+        <h2>Shorts</h2>
+        <div class="rail-ctrl">
+          <button class="icon-btn" type="button" id="shorts-prev" aria-label="Scroll shorts left"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button>
+          <button class="icon-btn" type="button" id="shorts-next" aria-label="Scroll shorts right"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
+        </div>
+      </div>
+      <div class="rail" id="shorts-rail" tabindex="0" aria-label="Shorts, scroll sideways"></div>
+    </section>
+
+    <section class="live" id="live">
+      <div class="live__copy">
+        <p class="eyebrow eyebrow--live"><span class="dot"></span> Live on Twitch</p>
+        <h2 class="live__title">Every Monday, Saturday &amp; Sunday</h2>
+        <p class="live__status" id="live-status"></p>
+        <ol class="week" id="week" aria-label="Stream days this week"></ol>
+        <div class="live__actions">
+          <a class="btn btn--twitch" data-link="twitch" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.57 4.71h1.72v5.15h-1.72zm4.72 0H18v5.15h-1.71zM6 0 1.71 4.29v15.42h5.15V24l4.28-4.29h3.43L22.29 12V0zm14.57 11.14-3.43 3.43h-3.43l-3 3v-3H6.86V1.71h13.71z"/></svg>
+            Follow on Twitch
+          </a>
+          <a class="btn btn--ghost" href="#library" data-type="stream">Watch Past Streams</a>
+        </div>
+      </div>
+      <div class="live__card" id="last-stream"></div>
+    </section>
+
+    <section class="block" id="library">
+      <div class="block__head">
+        <h2>Video Library</h2>
+        <p class="block__note" id="lib-count" aria-live="polite"></p>
+      </div>
+      <div class="toolbar">
+        <div class="toolbar__search">
+          <label class="sr-only" for="lib-q">Search the library</label>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          <input id="lib-q" type="search" autocomplete="off" placeholder="Search titles or games">
+        </div>
+        <div class="seg" role="group" aria-label="Type" id="lib-type">
+          <button type="button" data-type="all" aria-pressed="true">All</button>
+          <button type="button" data-type="video" aria-pressed="false">Videos</button>
+          <button type="button" data-type="short" aria-pressed="false">Shorts</button>
+          <button type="button" data-type="stream" aria-pressed="false">Streams</button>
+        </div>
+        <label class="sr-only" for="lib-game">Game</label>
+        <select id="lib-game"></select>
+        <label class="sr-only" for="lib-sort">Sort</label>
+        <select id="lib-sort">
+          <option value="new">Newest</option>
+          <option value="views">Most viewed</option>
+        </select>
+      </div>
+      <div class="grid grid--lib" id="lib-grid"></div>
+      <div class="lib-more">
+        <button class="btn btn--ghost" type="button" id="lib-more">Show More</button>
+      </div>
+    </section>
+
+    <section class="brotherhood" id="brotherhood">
+      <div class="brotherhood__copy">
+        <p class="eyebrow">The Brotherhood</p>
+        <h2>We stick together till the end.</h2>
+        <p>BrothasCrib is a variety gaming channel for the Brothas and Sistas of the Crib. Our home is action combat MMORPGs like Black Desert Online, Guild Wars 2 and Throne and Liberty, the big upcoming ones like Chrono Odyssey and ArcheAge Chronicles, and the occasional scary game. The goal: entertain anyone, and help the least of these with our content.</p>
+        <p class="platforms" id="platforms"></p>
+      </div>
+      <div class="partners">
+        <h3>Partnered with</h3>
+        <ul class="partners__list" id="partners"></ul>
+      </div>
+    </section>
+
+    <section class="loop">
+      <div>
+        <h2>Stay in the Loop</h2>
+        <p>Stream alerts, new uploads and game talk with the Crib. Come hang out on Discord.</p>
+      </div>
+      <a class="btn btn--gold btn--lg" data-link="discord" href="#" target="_blank" rel="noopener">Join the Discord</a>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__row">
+    <div class="footer__brand">
+      <img src="img/avatar.jpg" alt="" width="44" height="44">
+      <div>
+        <p class="brand__word">BrothasCrib</p>
+        <p class="footer__tag">Step into my office. The Doctor will see you now.</p>
+      </div>
+    </div>
+    <div>
+      <p class="footer__label">Follow us on social</p>
+      <div class="socials" data-socials></div>
+    </div>
+  </div>
+  <div class="wrap footer__legal">
+    <p>&copy; <span id="year">2026</span> BrothasCrib. Game names and art belong to their publishers.</p>
+    <a href="#top">Back to top</a>
+  </div>
+</footer>
+
+<script src="settings.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
