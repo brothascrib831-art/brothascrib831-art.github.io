@@ -4,7 +4,7 @@ window.BC_SITE = {
   socials: {
     youtube: "https://www.youtube.com/@brothascrib831",
     twitch: "https://www.twitch.tv/brothascrib",
-    discord: "https://discord.gg/cgDVVRjh5",
+    discord: "https://discord.gg/xrYaJYVRzs",
     tiktok: "",     // e.g. "https://www.tiktok.com/@yourname"
     instagram: "",  // e.g. "https://www.instagram.com/yourname"
     x: ""           // e.g. "https://x.com/yourname"
